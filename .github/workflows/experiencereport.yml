@@ -26,7 +26,6 @@ jobs:
           signoff: false
           branch: experience
           branch-suffix: timestamp
-          delete-branch: true
           title: 'Experience Report'
           body: |
             Checklist:
@@ -36,4 +35,3 @@ jobs:
             - [ ] Add activity completion evidence per notes
           team-reviewers: |
             instructors
-          draft: true
