@@ -1,0 +1,40 @@
+name: Experience Reflection (inclass)
+on:
+  workflow_dispatch
+
+
+jobs:
+  createPullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Make changes to pull request
+      # TODO: modify to create template file
+        run: |
+          exptitle="experience-"$(date +"%Y-%m-%d")".md"
+          cp .templates/experience-reflection.md experiences/$exptitle
+          
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PAT }}
+          commit-message: initialize experience
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: experience
+          branch-suffix: timestamp
+          delete-branch: true
+          title: 'Experience Badge'
+          body: |
+            Checklist:
+            - [ ] Merge prepare work into this PR
+            - [ ] Link prepare issue to this PR
+            - [ ] Complete experience reflection
+            - [ ] Include name for matching to prismia
+          team-reviewers: |
+            instructors
+          draft: true

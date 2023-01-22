@@ -1,0 +1,31 @@
+name: Add planned badges to grade tracker (edits required)
+#  remove the () when you edit
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add planned based badge to grade tracker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@RELEASE_VERSION
+        with:
+          # add your project board's number, replaceing the <projectNumber>
+          project-url: https://github.com/orgs/introcompsys/projects/<projectNumber>
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: experience, practice, prepare, review,
+          label-operator: OR
+  
+    name: Add planned advanced badge to grade tracker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@RELEASE_VERSION
+        with:
+          # add your project board's number, replaceing the <projectNumber>
+          project-url: https://github.com/orgs/introcompsys/projects/<projectNumber>
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: experience, practice, prepare, review,
+          label-operator: OR
