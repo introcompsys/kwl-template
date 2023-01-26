@@ -19,13 +19,13 @@ jobs:
           labeled: experience, practice, prepare, review,
           label-operator: OR
   
-    name: Add planned advanced badge to grade tracker
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/add-to-project@RELEASE_VERSION
-        with:
-          # add your project board's number, replaceing the <projectNumber>
-          project-url: https://github.com/orgs/introcompsys/projects/<projectNumber>
-          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-          labeled: experience, practice, prepare, review,
-          label-operator: OR
+    # name: Add planned advanced badge to grade tracker
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - uses: actions/add-to-project@RELEASE_VERSION
+    #     with:
+    #       # add your project board's number, replaceing the <projectNumber>
+    #       project-url: https://github.com/orgs/introcompsys/projects/<projectNumber>
+    #       github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+    #       labeled: experience, practice, prepare, review,
+    #       label-operator: OR
