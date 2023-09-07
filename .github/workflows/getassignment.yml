@@ -1,4 +1,4 @@
-name: Create badge issues (Edit before Running)
+name: Create badge issues (Do not run manually)
 on:
   workflow_dispatch
 
@@ -12,7 +12,7 @@ jobs:
     
     # Install dependencies
     - name: Set up Python 3.9
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v4
       with:
         python-version: 3.9
     
@@ -21,10 +21,13 @@ jobs:
         pip install git+https://github.com/introcompsys/courseutils@main
     - name: Get badge requirements
       run: |
+        # prepare badge lines
         pretitle="prepare-"$(date +"%Y-%m-%d")
         sysgetassignment | gh issue create --title $pretitle --label prepare --body-file -
+        # review badge lines
         rtitle="review-"$(date +"%Y-%m-%d")
         sysgetassignment --type review | gh issue create --title $rtitle --label review --body-file -
+        # practice badge lines
         pratitle="practice-"$(date +"%Y-%m-%d")
         sysgetassignment --type practice| gh issue create --title $pratitle --label practice --body-file -
       env:
