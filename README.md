@@ -17,10 +17,8 @@
 | git workflows | _ | _ | _ |
 | git branches | _ | _ | _ |
 | bash redirects | _ | _ | _ |
-| number systems | _ | _ | _ |
 | merge conflicts | _ | _ | _ |
 | documentation | _ | _ | _ |
-| templating | _ | _ | _ |
 | bash scripting | _ | _ | _ |
 | developer tools | _ | _ | _ |
 | networking | _ | _ | _ |
@@ -29,6 +27,7 @@
 | compiling | _ | _ | _ |
 | linking   | _ | _ | _ |
 | building | _ | _ | _ |
+| number systems | _ | _ | _ |
 | machine representation  | _ | _ | _ |
 | integers   | _ | _ | _ |
 | floating point  | _ | _ | _ |
@@ -37,7 +36,7 @@
 | binary operations | _ | _ | _ |
 | memory | _ | _ | _ |
 | cache | _ | _ | _ |
-| register | _ | _ | _ |
-| clock | _ | _ | _ |
-| Concurrency | _ | _ | _ |
-```
+| registers | _ | _ | _ |
+| clocks | _ | _ | _ |
+
+

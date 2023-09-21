@@ -1,6 +1,12 @@
+
 name: Experience Report (makeup)
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'missed class date like YYYY-MM-DD'
+        required: true
+        type: string
 
 
 jobs:
@@ -12,26 +18,24 @@ jobs:
       - name: Make changes to pull request
       # TODO: modify to create template file
         run: |
-          exptitle="experience-"$(date +"%Y-%m-%d")".md"
+          exptitle="experience-${{ inputs.date }}.md"
           cp .templates/experience-report.md experiences/$exptitle
-
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: initialize experience report
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           branch: experience
           branch-suffix: timestamp
-          title: 'Experience Report'
+          title: 'Experience Report ${{ inputs.date }}'
           body: |
             Checklist:
             - [ ] Merge prepare work into this PR
             - [ ] Link prepare issue to this PR
             - [ ] Complete experience report
             - [ ] Add activity completion evidence per notes
-          team-reviewers: |
-            instructors
+          reviewers: brownsarahm
