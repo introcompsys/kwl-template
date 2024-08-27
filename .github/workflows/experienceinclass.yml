@@ -11,13 +11,17 @@ jobs:
 
       - name: Get current date
         id: date
-        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_ENV"
+        run: |
+          echo "date=$(date +'%Y-%m-%d')"
+          echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_ENV"
 
 
       - name: Create file
         run: |
-          exptitle="experience-"$date".md"
-          cp .templates/experience-reflect.md experiences/$exptitle
+          cp .templates/experience-reflect.md experiences/experience-$date.md
+          echo $date
+          echo "$date"
+          
           
 
       - name: Create Pull Request
@@ -30,9 +34,9 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           base: main
-          branch: experience-$date
+          branch: experience-${{ env.date }}
           # branch-suffix: timestamp
-          title: 'Experience Badge $date'
+          title: 'Experience Badge ${{ env.date }}'
           body: |
             Checklist:
             - [ ] Merge prepare work into this PR's

@@ -1,7 +1,7 @@
 # My Community Contributions 
 
 
-Use this to create a list of your contributions to the class community 
+Use this file to create a list of your contributions to the class community 
 
 For each one: 
 - add an item in a bulleted list (start the line with `- ` )
